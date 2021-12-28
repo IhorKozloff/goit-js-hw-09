@@ -16,3 +16,31 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.no-activeBtn {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.timer {
+  display: flex;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity cubic-bezier(0.075, 0.82, 0.165, 1) 1.5s;
+}
+.timer.active {
+  opacity: 1;
+}
+.timer span {
+  font-size: 30px;
+}
+.field {
+  margin-right: 20px;
+}
+.field::after {
+  content: ":";
+  margin-left: 20px;
+  font-size: 35px;
+}
+.field:last-of-type::after {
+  opacity: 0;
+}
