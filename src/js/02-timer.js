@@ -13,7 +13,7 @@ const refs = {
     timerWrapperEl: document.querySelector('.timer'),
 };
 refs.timerStartBtnEl.classList.add('no-activeBtn');
-  
+
 
 
 const options = {
@@ -35,13 +35,9 @@ const options = {
       
     },
   };
-
+  flatpickr("#datetime-picker", options);  
 
 refs.dateInput.value = "Select Date..."
-function onInputClick () {
-    flatpickr("#datetime-picker", options); 
-};
-
 
 const timer = {
   start(startTime) {
@@ -86,4 +82,4 @@ function convertMs(ms) {
   }
 
 refs.timerStartBtnEl.addEventListener('click', onStartBtnClick)
-refs.dateInput.addEventListener('click', onInputClick);
+
