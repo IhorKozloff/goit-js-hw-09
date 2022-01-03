@@ -40,18 +40,29 @@ const options = {
 refs.dateInput.value = "Select Date..."
 
 const timer = {
+
+  timerID: null,
+  differenceInTime: null,
   start(startTime) {
-    setInterval(() => {
-        const currentTime = Date.now();
-        const differenceInTime = startTime - currentTime
-        const { days, hours, minutes, seconds } = convertMs(differenceInTime)
+    
+    timer.timerID = setInterval(() => {
+      const currentTime = Date.now();
+      this.differenceInTime = startTime - currentTime;
+      if (this.differenceInTime > 0) {
+        const { days, hours, minutes, seconds } = convertMs(this.differenceInTime);
         refs.timerDaysEl.textContent = `${days}`;
         refs.timerHoursEl.textContent = `${hours}`;
         refs.timerMinutesEl.textContent = `${minutes}`;
         refs.timerSecondsEl.textContent = `${seconds}`;
-
+      } else {
+        this.stop();
+      } 
     }, 1000);
   },  
+  stop () {
+    Notiflix.Notify.info('Time is over');
+    clearInterval(this.timerID);
+  },
 };
 
 function onStartBtnClick () {

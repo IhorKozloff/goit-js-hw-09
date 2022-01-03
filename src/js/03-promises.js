@@ -6,7 +6,7 @@ const refs = {
   amountEl: document.querySelector('[name="amount"]'),
   submitBtnEl: document.querySelector('button'),
 };
-
+console.log(refs)
 const settings = {
   amount: 0,
   step: 0,
